@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import zxcvbn from 'zxcvbn'
 import Navbar from './Layouts/Navbar'
-import { Checkbox, InputNumber, Button, Input, message, Typography, Space, Divider, Tag, Card, Progress } from 'antd'
+import { Checkbox, InputNumber, Button, message, Typography, Space, Divider, Tag, Card, Progress } from 'antd'
 import { FaCopy } from 'react-icons/fa'
 import { BsArrowRepeat } from "react-icons/bs";
 const { Title, Text } = Typography
@@ -49,12 +49,6 @@ function App() {
       navigator.clipboard.writeText(password)
       message.success('Password copied to clipboard!')
     }
-  }
-
-  const getStrengthLabel = () => {
-    const labels = ['Very Weak', 'Weak', 'Fair', 'Good', 'Strong']
-    const colors = ['#ff4d4f', '#fa8c16', '#fadb14', '#52c41a', '#237804']
-    return <Tag color={colors[strength]}>{labels[strength]}</Tag>
   }
 
   return (
