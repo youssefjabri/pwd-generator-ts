@@ -20,6 +20,9 @@ function App() {
   const [password, setPassword] = useState('')
   const [strength, setStrength] = useState(0)
 
+  const isAnyOptionSelected = useUpper || useLower || useNumbers || useSymbols;
+
+
   const generatePassword = () => {
     let charset = ''
     if (useUpper) charset += UPPERCASE
@@ -64,10 +67,10 @@ function App() {
               </span>
               <div className='flex gap-3' >
                 <span onClick={generatePassword} className='hover:cursor-pointer text-blue-500 hover:bg-blue-100 border text-2xl w-[40px] h-[40px] p-0.5 flex transition-colors justify-center items-center rounded-lg'>
-                  <BsArrowRepeat  />
+                  <BsArrowRepeat />
                 </span>
                 <span onClick={copyToClipboard} className='hover:cursor-pointer text-blue-500 hover:bg-blue-100 border text-2xl w-[40px] h-[40px] p-0.5 flex transition-colors justify-center items-center rounded-lg'>
-                <FaCopy/>
+                  <FaCopy />
                 </span>
               </div>
             </div>
@@ -96,8 +99,7 @@ function App() {
               Symbols
             </Checkbox>
           </Space>
-
-          <Button type="primary" onClick={generatePassword}>
+          <Button type="primary" onClick={generatePassword} disabled={!isAnyOptionSelected}>
             Generate Password
           </Button>
         </Space>
